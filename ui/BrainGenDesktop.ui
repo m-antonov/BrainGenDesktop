@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1078</width>
+    <height>771</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>BrainGenDesktop</string>
+  </property>
+  <widget class="QWidget" name="central_widget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>9</number>
+    </property>
+    <property name="topMargin">
+     <number>9</number>
+    </property>
+    <property name="rightMargin">
+     <number>9</number>
+    </property>
+    <property name="bottomMargin">
+     <number>9</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="connection_box">
+      <property name="minimumSize">
+       <size>
+        <width>256</width>
+        <height>125</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>256</width>
+        <height>125</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Connection</string>
+      </property>
+      <layout class="QVBoxLayout" name="connection_box_layout">
+       <item>
+        <layout class="QHBoxLayout" name="generator_layout">
+         <item>
+          <widget class="QLabel" name="generator_label">
+           <property name="text">
+            <string>Generator:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="generator_port"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="generator_baud"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="tgam_layout">
+         <item>
+          <widget class="QLabel" name="tgam_label">
+           <property name="text">
+            <string>TGAM:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="tgam_port"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="tgam_baud"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="connection_btn">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>36</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>36</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>CONNECT</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="2">
+     <widget class="QGroupBox" name="eeg_graph">
+      <property name="minimumSize">
+       <size>
+        <width>798</width>
+        <height>458</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>458</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>EEG</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" rowspan="2">
+     <widget class="QGroupBox" name="signal_box">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>256</width>
+        <height>514</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>256</width>
+        <height>514</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Signal</string>
+      </property>
+      <layout class="QVBoxLayout" name="signal_box_layout">
+       <item>
+        <widget class="QGroupBox" name="alpha_box">
+         <property name="title">
+          <string>Alpha</string>
+         </property>
+         <layout class="QVBoxLayout" name="alpha_box_layout">
+          <item>
+           <layout class="QHBoxLayout" name="low_alpha_layout">
+            <item>
+             <widget class="QCheckBox" name="low_alpha_checkbox">
+              <property name="minimumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Low Alpha</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="low_alpha_amplitude">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> uV</string>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="low_alpha_frequency">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> Hz</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>7.500000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>9.199999999999999</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="high_alpha_layout">
+            <item>
+             <widget class="QCheckBox" name="high_alpha_checkbox">
+              <property name="minimumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>High Alpha</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="high_alpha_amplitude">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> uV</string>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="high_alpha_frequency">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> Hz</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>10.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>11.699999999999999</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="beta_box">
+         <property name="title">
+          <string>Beta</string>
+         </property>
+         <layout class="QVBoxLayout" name="beta_box_layout">
+          <item>
+           <layout class="QHBoxLayout" name="low_beta_layout">
+            <item>
+             <widget class="QCheckBox" name="low_beta_checkbox">
+              <property name="minimumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Low Beta</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="low_beta_amplitude">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> uV</string>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="low_beta_frequency">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> Hz</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>13.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>16.699999999999999</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="high_beta_layout">
+            <item>
+             <widget class="QCheckBox" name="high_beta_checkbox">
+              <property name="minimumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>High Beta</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="high_beta_amplitude">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> uV</string>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="high_beta_frequency">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> Hz</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>18.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>29.699999999999999</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="delta_box">
+         <property name="title">
+          <string>Delta</string>
+         </property>
+         <layout class="QVBoxLayout" name="delta_box_layout">
+          <item>
+           <layout class="QHBoxLayout" name="delta_layout">
+            <item>
+             <widget class="QCheckBox" name="delta_checkbox">
+              <property name="minimumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Delta</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="delta_amplitude">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> uV</string>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="delta_frequency">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> Hz</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>0.500000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>2.700000000000000</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gamma_box">
+         <property name="title">
+          <string>Gamma</string>
+         </property>
+         <layout class="QVBoxLayout" name="gamma_box_layout">
+          <item>
+           <layout class="QHBoxLayout" name="low_gamma_layout">
+            <item>
+             <widget class="QCheckBox" name="low_gamma_checkbox">
+              <property name="minimumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Low Gamma</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="low_gamma_amplitude">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> uV</string>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="low_gamma_frequency">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> Hz</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>31.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>39.700000000000003</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="mid_gamma_layout">
+            <item>
+             <widget class="QCheckBox" name="mid_gamma_checkbox">
+              <property name="minimumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Mid Gamma</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="mid_gamma_amplitude">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> uV</string>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="mid_gamma_frequency">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> Hz</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>41.000000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>49.700000000000003</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="theta_box">
+         <property name="title">
+          <string>Theta</string>
+         </property>
+         <layout class="QVBoxLayout" name="theta_box_layout">
+          <item>
+           <layout class="QHBoxLayout" name="theta_layout">
+            <item>
+             <widget class="QCheckBox" name="theta_checkbox">
+              <property name="minimumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>82</width>
+                <height>17</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Theta</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="theta_amplitude">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> uV</string>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="theta_frequency">
+              <property name="minimumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>62</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string> Hz</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>3.500000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>6.700000000000000</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="attention_box">
+         <property name="title">
+          <string>Attention / Meditation</string>
+         </property>
+         <layout class="QHBoxLayout" name="attention_box_layout">
+          <item>
+           <widget class="QCheckBox" name="attention_checkbox">
+            <property name="text">
+             <string>Attention</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="meditation_checkbox">
+            <property name="text">
+             <string>Meditation</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="signal_btn">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>36</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>36</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>SET</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QGroupBox" name="attention_graph">
+      <property name="minimumSize">
+       <size>
+        <width>798</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>181</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Attention / Meditation</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <widget class="QTextBrowser" name="log">
+      <property name="minimumSize">
+       <size>
+        <width>1060</width>
+        <height>102</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
